@@ -1,5 +1,5 @@
 module Rack
-  module SimpleLogger
+  class SimpleLogger
     VERSION = "0.0.1"
   end
 end
