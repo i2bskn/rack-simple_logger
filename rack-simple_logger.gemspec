@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["i2bskn@gmail.com"]
   spec.description   = %q{Simple logger for rack}
   spec.summary       = %q{Simple logger for rack}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/i2bskn/rack-simple_logger"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
