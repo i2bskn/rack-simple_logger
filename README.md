@@ -1,6 +1,8 @@
 # Rack::SimpleLogger
 
 [![Gem Version](https://badge.fury.io/rb/rack-simple_logger.png)](http://badge.fury.io/rb/rack-simple_logger)
+[![Build Status](https://travis-ci.org/i2bskn/rack-simple_logger.png?branch=master)](https://travis-ci.org/i2bskn/rack-simple_logger)
+[![Coverage Status](https://coveralls.io/repos/i2bskn/rack-simple_logger/badge.png?branch=master)](https://coveralls.io/r/i2bskn/rack-simple_logger?branch=master)
 [![Code Climate](https://codeclimate.com/github/i2bskn/rack-simple_logger.png)](https://codeclimate.com/github/i2bskn/rack-simple_logger)
 
 Simple logger for rack.
