@@ -1,5 +1,8 @@
 # Rack::SimpleLogger
 
+[![Gem Version](https://badge.fury.io/rb/rack-simple_logger.png)](http://badge.fury.io/rb/rack-simple_logger)
+[![Code Climate](https://codeclimate.com/github/i2bskn/rack-simple_logger.png)](https://codeclimate.com/github/i2bskn/rack-simple_logger)
+
 Simple logger for rack.
 
 ## Installation
