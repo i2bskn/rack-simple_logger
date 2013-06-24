@@ -21,12 +21,6 @@ module Rack
       logger_formatter if @log_type == :logger
     end
 
-    def logger_formatter
-      @logger.formatter = Proc.new do |severity, datetime, progname, msg|
-        "#{msg}\n"
-      end
-    end
-
     def write(log_hash)
       send("write_#{@log_type}", log_hash)
     end
@@ -41,6 +35,13 @@ module Rack
 
     def write_other(log_hash)
       @logger.write log_hash
+    end
+
+    private
+    def logger_formatter
+      @logger.formatter = Proc.new do |severity, datetime, progname, msg|
+        "#{msg}\n"
+      end
     end
   end
 end
