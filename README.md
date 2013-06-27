@@ -50,6 +50,49 @@ use Rack::SimpleLogger, log: collection
 run RackApplication.new
 ```
 
+for CustomLogger:
+
+```ruby
+require "rack_application"
+require "rack/simple_logger"
+
+MyLogger = Class.new do
+  define_method :write do |log_hash|
+    # something log output process
+  end
+end
+
+use Rack::SimpleLogger, log: MyLogger.new
+run RackApplication.new
+```
+
+log filter:
+
+```ruby
+require "rack_application"
+require "rack/simple_logger"
+
+MyFilter = Class.new do
+  define_method :pass do |env,status,header,began_at|
+    {
+      xff: env["HTTP_X_FORWARDED_FOR"] || "-",
+      host: env["REMOTE_ADDR"],
+      time: began_at.strftime("%Y-%m-%d %H:%M:%S"),
+      method: env["REQUEST_METHOD"],
+      path: env["PATH_INFO"],
+      query_strings: env["QUERY_STRING"] || "-",
+      status: status,
+      ua: env["HTTP_USER_AGENT"],
+      res_size: header["Content-Length"],
+      app_time: Time.now - began_at
+    }
+  end
+end
+
+use Rack::SimpleLogger, log: "/path/to/production.log", filter: MyFilter.new
+run RackApplication.new
+```
+
 ## Contributing
 
 1. Fork it
