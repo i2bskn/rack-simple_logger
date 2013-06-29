@@ -52,6 +52,8 @@ run RackApplication.new
 
 for CustomLogger:
 
+Instance of a class with the `write` method.
+
 ```ruby
 require "rack_application"
 require "rack/simple_logger"
@@ -66,7 +68,18 @@ use Rack::SimpleLogger, log: MyLogger.new
 run RackApplication.new
 ```
 
-log filter:
+#### Change the contents of the log to be output
+
+`LogProxy#write` to output all the hash of the logs received.  
+You can change the contents of the log to be output by specifying the `:filter`.  
+Custom filter class with a `pass` method.  
+
+`pass` method is shaped to receive the following parameters:
+
+* env => Request of rack applications.
+* status => HTTP status code.
+* header => HTTP response header.
+* began_at => Time of the request received.
 
 ```ruby
 require "rack_application"
