@@ -9,9 +9,8 @@ require "rack/simple_logger/log_filter"
 module Rack
   class SimpleLogger
     def initialize(app, options={})
-      options[:log] ||= STDOUT
-      @logger = LogProxy.new(options[:log])
-      @filter = options[:filter] || LogFilter.new
+      @logger = LogProxy.new(options.fetch(:log, STDOUT))
+      @filter = options.fetch(:filter, LogFilter.new)
       @app = app
     end
 
